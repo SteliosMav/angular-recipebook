@@ -1,0 +1,18 @@
+.navbar {
+  background-color: rgb(67, 98, 238);
+}
+.navbar a {
+  color: rgb(238, 238, 238);
+  font-size: 14px;
+}
+.navbar a:hover {
+  color: rgb(172, 172, 172);
+}
+.active a {
+  color: rgb(109, 109, 109);
+  font-size: 16px;
+}
+.dropdown.open a {
+  color: rgb(109, 109, 109);
+  font-size: 14px;
+}

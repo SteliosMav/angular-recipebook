@@ -1,0 +1,65 @@
+<ng-template appPlaceholder></ng-template>
+<div class="row wrapper">
+  <div class="col-xs-6 col-xs-offset-3 col-sm-4 col-sm-offset-2">
+    <div *ngIf="isLoading" style="text-align: center">
+      <app-loading-spinner></app-loading-spinner>
+    </div>
+    <form #authForm="ngForm" (ngSubmit)="onSubmit(authForm)" *ngIf="!isLoading">
+      <div class="form-group">
+        <label for="email"
+          >E-Mail
+          <input
+            type="email"
+            id="email"
+            class="form-control"
+            ngModel
+            name="email"
+            required
+            email
+          />
+        </label>
+      </div>
+      <div class="form-group">
+        <label for="password"
+          >Password
+          <input
+            type="password"
+            id="password"
+            class="form-control"
+            ngModel
+            name="password"
+            required
+            minlength="6"
+          />
+        </label>
+      </div>
+      <div>
+        <button
+          class="btn btn-success"
+          type="submit"
+          [disabled]="!authForm.valid"
+        >
+          {{ isLoginMode ? "Login" : "Sign Up" }}
+        </button>
+        |
+        <button class="btn btn-primary" (click)="onSwitchMode()" type="button">
+          Switch to {{ isLoginMode ? "Sign Up" : "Login" }}
+        </button>
+      </div>
+    </form>
+  </div>
+
+  <div class="col-xs-6 col-xs-offset-3 col-sm-4 col-sm-offset-1">
+    <h2 style="color: rgb(12, 74, 129)">Welcome to Recipebook</h2>
+    <br />
+    <div style="font-size: 16px">
+      <p><strong>Login</strong> with your email and a secret password.</p>
+
+      <p>Already have an account?</p>
+      <p>
+        <strong>Sign</strong> in using your account's email and enter your
+        password.
+      </p>
+    </div>
+  </div>
+</div>
